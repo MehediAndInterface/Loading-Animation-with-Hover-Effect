@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #121213;
+}
+
+/* Loading text styling */
+.loading {
+    position: relative;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+}
+
+/* Cursor effect */
+.loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: #03e9f4;
+    animation: blinkCursor 0.8s steps(3) infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 75% {
+        opacity: 1;
+    }
+    76%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Typing effect */
+.loading h2 {
+    position: relative;
+    color: #03e9f4;
+    letter-spacing: 5px;
+    font-size: 4em;
+    text-transform: uppercase;
+    animation: typing 8s steps(10) infinite, glow 1.5s ease-in-out infinite alternate;
+    overflow: hidden;
+}
+
+/* Typing animation */
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    30% {
+        width: 335px;
+    }
+}
+
+/* Glow effect */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #03e9f4, 0 0 20px #03e9f4, 0 0 30px #03e9f4, 0 0 40px #03e9f4;
+    }
+    to {
+        text-shadow: 0 0 20px #03e9f4, 0 0 30px #03e9f4, 0 0 40px #03e9f4, 0 0 50px #03e9f4;
+    }
+}
+
+/* Hover effect */
+.loading:hover h2 {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
